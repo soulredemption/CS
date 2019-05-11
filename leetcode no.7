@@ -1,0 +1,12 @@
+给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
+class Solution:
+    def reverse(self, x: int) -> int:
+        abs_x = abs(x)
+        flag = 1 if x >= 0 else -1
+        str_x = str(abs_x)
+        reverse_str_x = str_x[::-1]
+        reverse_str_int = int(reverse_str_x) * flag
+        if -2**31 <= reverse_str_int <= 2**31-1:
+            return reverse_str_int
+        else :
+            return 0 
