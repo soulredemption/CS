@@ -1,0 +1,19 @@
+class Solution(object):
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        n = len(nums)
+        b = []
+        nums = sorted(nums)
+        for i in range(0,n-1):
+            if nums[i]-nums[i+1] == 0:
+                a = 0
+                a += 1
+                b.append(a)
+                
+                if a > n/2:
+                    return num[i]
+            else:
+                continue
