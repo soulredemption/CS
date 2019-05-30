@@ -1,0 +1,26 @@
+class Solution(object):
+    def myAtoi(self, str):
+        """
+        :type str: str
+        :rtype: int
+        """
+        str = str.lstrip()
+        if str == '' or (len(str) == 1 and str[0] in ['+', '-']):
+            return 0
+        for i in range(len(str)):
+            if i == 0 and str[i] not in ['-', '+', '0', '1', '2', '3', '4','5','6', '7','8','9']:
+                return 0
+            else:
+                if i >0 and str[i] not in ['0', '1', '2', '3', '4','5','6', '7','8','9']:
+                    str = str[0:i]
+                    break
+        if str[-1] not in ['0', '1', '2', '3', '4','5','6', '7','8','9']:
+            return 0
+        else:
+            k = int(str)
+        if k <(-2147483648):
+            return -2147483648
+        elif k >2147483647:
+            return 2147483647
+        else:
+            return k
