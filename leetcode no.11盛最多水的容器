@@ -1,0 +1,38 @@
+class Solution(object):
+    def maxArea(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        n = len(height)
+        b = []
+        for i in range(0,n-1):
+            for j in range(i,n):
+                area = min(height[i], height[j]) * (j - i)
+                b.append(area)
+        return max(b)
+        暴力求解算法。
+ class Solution(object):
+    def maxArea(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        n = len(height)
+        i = 0
+        a = height[i]
+        j = n-1
+        b = height[j]
+        area = min(height[i], height[j]) * (j-i)
+        if n == 2:
+            return area
+        else:
+            while i != j:
+                if height[i] > height[j]:
+                    area =max((height[j] * (j-i)), area)
+                    j -= 1
+                if height[i] <= height[j]:
+                    area =max((height[i] * (j-i)), area)
+                    i += 1
+            return area
+        
