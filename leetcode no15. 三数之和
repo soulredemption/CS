@@ -1,0 +1,16 @@
+class Solution(object):
+    def threeSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        list = []
+        nums = sorted(nums)
+        n = len(nums)
+        for a in range(0,n-2):
+            for b in range(a+1,n-1):
+                for c in range(a+2,n):
+                    if int(nums[a]) + int(nums[b]) + int(nums[c]) == 0:
+                        d= [nums[a], nums[b], nums[c]]
+                        list.append(d)
+        return list
