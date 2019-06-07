@@ -1,0 +1,46 @@
+class Solution(object):
+    def isPowerOfTwo(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        a = n
+        while a != 2:
+            a = n /2
+            if a %1 == 0:
+                n = n/2
+            else:
+                return False
+                break
+        if a == 2:
+            return True
+正常Python正面刚
+class Solution(object):
+    def isPowerOfTwo(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        if n <= 0:
+            return False
+        num = 0
+        while 2**num <= n:
+            if 2**num == n:
+                return True
+            num += 1
+        return False
+递归思想，但好像有问题，全局没定义
+class Solution(object):
+    def isPowerOfTwo(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        if n <= 0:
+            return False
+        if n == 1:
+            return True
+        if n %2 !=0:
+            return False
+        else:
+            return isPowerOfTwo(self, n/2)
