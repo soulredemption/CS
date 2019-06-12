@@ -1,0 +1,15 @@
+class Solution(object):
+    def permute(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        if nums is None: return []
+        if len(nums) == 1: return [nums]
+        res = []
+        for i in nums:
+            ys = nums+[]
+            ys.remove(i)
+            for j in self.permute(ys):
+                res.append([i]+j)
+        return res
