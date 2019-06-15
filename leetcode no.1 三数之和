@@ -1,0 +1,22 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        if nums == 0:
+            return ''
+        nums_sort = sorted(range(len(nums)), key = lambda k: nums[k])
+        i = 0
+        j = len(nums)-1
+        for k in range(len(nums)-1):
+            a = nums[nums_sort[i]] + nums[nums_sort[j]] 
+            if a < target:
+                i += 1
+            if a == target:
+                break
+            if a > target:
+                j -= 1
+        return [nums_sort[i], nums_sort[j]] 
+        
