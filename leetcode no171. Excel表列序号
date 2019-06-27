@@ -1,0 +1,13 @@
+class Solution(object):
+    def titleToNumber(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        a = [chr(i).upper() for i in range(97,123)]
+        value = 0
+        for j in range(len(s)):
+            j_str = s[j]
+            j_index = a.index(j_str) + 1
+            value += j_index*26**(len(s)-j-1)
+        return value
