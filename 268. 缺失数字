@@ -1,0 +1,8 @@
+if nums == '':
+            return ''
+        if nums == [0]:
+            return 1
+        nums = sorted(nums)
+        for i in range(len(nums)-1):
+            if nums[i+1] - nums[i] != 1:
+                return i+1
